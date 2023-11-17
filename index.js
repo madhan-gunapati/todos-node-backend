@@ -8,16 +8,27 @@ const {open} = require('sqlite')
 const sqlite3 = require('sqlite3');
 
 
-const cors = require('cors');
+// const cors = require('cors');
 
 
 
 
 
-// Enable CORS for all origins
-app.use(cors({
-  origin: '*',
-}));
+// // Enable CORS for all origins
+// app.use(cors({
+//   origin: '*',
+// }));
+
+
+
+// Allow requests from any origin
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    // Other CORS headers...
+  
+    next();
+  });
+  
 
 // Parse JSON request bodies
 app.use(express.json());
