@@ -14,7 +14,7 @@ const cors = require('cors');
 
 
 
-Enable CORS for all origins
+// Enable CORS for all origins
 app.use(cors({
   origin: '*',
 }));
