@@ -12,7 +12,9 @@ const cors = require('cors');
 
 
 // Enable CORS for all origins
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
 
 // Parse JSON request bodies
 app.use(express.json());
