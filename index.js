@@ -8,32 +8,22 @@ const {open} = require('sqlite')
 const sqlite3 = require('sqlite3');
 
 
-// const cors = require('cors');
+const cors = require('cors');
 
 
 
 
 
 // // Enable CORS for all origins
-// app.use(cors({
-//   origin: '*',
-// }));
 
 
 
-app.use((req, res, next) => {
-    // Set CORS headers
-    res.set({
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      // Add more CORS headers as needed
-    });
-  
-    // Continue to the next middleware or route handler
-    next();
-  });
-  
+
+app.use(cors({
+    origin: '*', // Allow requests from any origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: ['Content-Type', 'Accept'], // Specify allowed headers
+  }));
 
 
 
