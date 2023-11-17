@@ -21,17 +21,19 @@ const sqlite3 = require('sqlite3');
 
 
 
-// Allow requests from any origin
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    
-    // Allow specific HTTP headers
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  // Other CORS headers...
+    // Set CORS headers
+    res.set({
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      // Add more CORS headers as needed
+    });
+  
+    // Continue to the next middleware or route handler
     next();
   });
   
-
 
 
 
